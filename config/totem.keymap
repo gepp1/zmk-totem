@@ -58,31 +58,153 @@ combo_##name {                             \
 };
 
 / {
-     combos {
-            compatible = "zmk,combos";
-            combo_esc {
-                timeout-ms = <50>;
-                key-positions = <0 1>;
-                bindings = <&kp ESC>;
-            };
-            combo_tvp {
-                timeout-ms = <100>;
-                key-positions = <11 12 13>;
-                bindings = <&tog TVP1>;
-            };
+  combos {
+        compatible = "zmk,combos";
+
+        backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <16 17>;
+        };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <28 27>;
+        };
+
+        alttab {
+            bindings = <&alttab_macro>;
+            key-positions = <2 12>;
+        };
+
+        ctrlshift {
+            bindings = <&ctrlshift_macro>;
+            key-positions = <10 21>;
+        };
+
+        btcon {
+            bindings = <&mo6>;
+            key-positions = <4 20>;
+        };
+
+        layer2 {
+            bindings = <&mo2>;
+            key-positions = <32 33>;
+        };
+
+        layer5 {
+            bindings = <&mo5>;
+            key-positions = <34 33>;
+        };
     };
 
     macros {
-        gif: gif {
-            label = "giphy";
+        // Combo macros
+
+        alttab_macro: alttab_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LSHFT>
-                , <&macro_tap &kp N2>
-                , <&macro_release &kp LSHFT>
-                , <&macro_tap &kp G &kp I &kp F>
-                ;
+            bindings = <&kp LEFT_ALT &kp TAB>;
+            label = "ALTTAB";
+        };
+
+        ctrlshift_macro: ctrlshift_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_CTRL &kp LEFT_SHIFT>;
+            label = "CTRL_SHIFT";
+        };
+
+        // Text macros
+
+        aleft: aleft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp G &kp A &kp L>;
+            label = "ALEFT";
+        };
+
+        aright: aright {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp G &kp A &kp R>;
+            label = "ARIGHT";
+        };
+
+        atop: atop {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp G &kp A &kp T>;
+            label = "ATOP";
+        };
+
+        acenter: acenter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp G &kp A &kp C>;
+            label = "AMIDDLE";
+        };
+
+        abottom: abottom {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp G &kp A &kp B>;
+            label = "ABOTTOM";
+        };
+
+        trsimage: trsimage {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp J &kp P &kp I &kp S>;
+            label = "TRSIMAGE";
+        };
+
+        amid: amid {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp G &kp A &kp M>;
+            label = "AMID";
+        };
+
+        Horizontal: Horizontal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp G &kp A &kp H>;
+            label = "HORIZONTAL";
+        };
+
+        Vertical: Vertical {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp H &kp G &kp A &kp V>;
+            label = "VERTICAL";
+        };
+
+        PW: PW {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp S &kp C &kp H &kp O &kp O &kp N1 &kp N4 &kp T &kp H &kp E &kp W &kp EXCL &kp N>;
+            label = "PW";
+        };
+
+        Thx: Thx {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp T &kp H &kp A &kp N &kp K &kp SPACE &kp Y &kp O &kp U &kp COMMA &kp ENTER &kp LEFT_SHIFT &kp A &kp N &kp D &kp R &kp E &kp W>;
+            label = "THX";
+        };
+
+        LineDel: LineDel {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp RIGHT_SHIFT &kp END>;
+            label = "LINEDEL";
+        };
+
+        BottomofCol: BottomofCol {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_CTRL &kp END &kp HOME>;
+            label = "BOTTOMOFCOL";
         };
     };
 
